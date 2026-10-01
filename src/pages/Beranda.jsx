@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import { supabase } from '../lib/supabase'
 import JadwalSholat from '../components/JadwalSholat'
+import ProgramCard from '../components/ProgramCard'
 
 const FASILITAS = [
   {
@@ -96,18 +97,7 @@ export default function Beranda() {
 
         <div className="mt-6 grid gap-5 md:grid-cols-3">
           {programs.map((p) => (
-            <Link
-              key={p.slug}
-              to={`/program/${p.slug}`}
-              className="rounded-2xl bg-white p-5 ring-1 ring-stone-200 transition hover:-translate-y-1 hover:shadow-md"
-            >
-              <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold capitalize text-amber-800">
-                {p.kategori}
-              </span>
-              <h3 className="mt-3 text-lg font-bold">{p.judul}</h3>
-              <p className="mt-1 text-sm text-stone-500">{p.jadwal}</p>
-              <p className="mt-3 text-sm text-stone-600">{p.pemateri}</p>
-            </Link>
+            <ProgramCard key={p.slug} program={p} />
           ))}
         </div>
       </section>

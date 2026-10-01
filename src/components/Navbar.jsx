@@ -30,7 +30,7 @@ export default function Navbar() {
         <ul className="hidden gap-6 md:flex">
           {menu.map((item) => (
             <li key={item.to}>
-              <NavLink to={item.to} end className={linkClass}>
+              <NavLink to={item.to} end={item.to === "/"} className={linkClass}>
                 {item.label}
               </NavLink>
             </li>
@@ -54,7 +54,7 @@ export default function Navbar() {
             <li key={item.to}>
               <NavLink
                 to={item.to}
-                end
+                end={item.to === "/"}
                 className={linkClass}
                 onClick={() => setOpen(false)}
               >
